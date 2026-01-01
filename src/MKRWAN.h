@@ -831,6 +831,20 @@ public:
     return appskey;
   }
 
+  String getSNR() {
+      String snr;
+      sendAT(GF("+SNR?"));
+      waitResponse(1000, snr);
+      return snr;
+  }
+
+  String getRSSI() {
+      String rssi;
+      sendAT(GF("+RSSI?"));
+      waitResponse(1000, rssi);
+      return rssi;
+  }
+
   int getRX2DR() {
     int dr = -1;
     sendAT(GF("+RX2DR?"));
